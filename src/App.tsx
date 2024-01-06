@@ -18,7 +18,7 @@ function App() {
   return (
     <div className="app">
       <Header openModal={openModal} />
-      <main className='container main'>
+      <main className='main'>
         <Map/>
         <Ads/>
       </main>

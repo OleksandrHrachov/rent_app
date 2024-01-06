@@ -1,8 +1,10 @@
-import { FC } from "react";
+import { FC, useState, useEffect } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import "./AddAdsModal.scss";
 import { SharedButton } from "../SharedButton";
 import { getCoords } from "../../services/getCoords";
+import { useAppDispatch } from "../../hooks";
+import { addAds } from "../../store/adsSlice";
 
 interface IProps {
   onClose: () => void;
@@ -25,10 +27,68 @@ export const AddAdsModal: FC<IProps> = ({ onClose }) => {
     handleSubmit,
     formState: { errors },
   } = useForm<IInputs>();
-  const onSubmit: SubmitHandler<IInputs> = (data) => {
-    console.log(data);
-    getCoords(data.city, data.street);
+
+  const dispatch = useAppDispatch();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+
+  useEffect(() => {
+    if (error) {
+      setTimeout(() => {
+        onClose();
+      }, 3000);
+    }
+  }, [error]);
+
+  useEffect(() => {
+    return () => setError('');
+  }, [])
+
+  const onSubmit: SubmitHandler<IInputs> = async (data) => {
+    setLoading(true);
+    try {
+      const coords = await getCoords(data.city, data.street);
+
+      if (coords) {
+        const adsObj = {
+          info: {
+            id: "helgdddfhhgfd",
+            city: data.city,
+            street: data.street,
+            name: data.name,
+            phone: data.phone,
+            email: data.email,
+            title: data.title,
+            price: data.price,
+            description: data.description,
+          },
+          coords: {
+            lat: coords.lat,
+            lon: coords.lon,
+          },
+        };
+
+        dispatch(addAds(adsObj));
+
+        onClose();
+        setLoading(false);
+      } else {
+        throw new Error(
+          "You may have entered an incorrect address, please try again."
+        );
+      }
+    } catch (error) {
+      setLoading(false);
+      
+      if (error instanceof Error) {
+        console.log(error.message);
+        setError(error.message);
+      } else {
+        setError('ERROR');
+      }
+    }
   };
+
   return (
     <div className="ads-modal">
       <div className="ads-modal__body">
@@ -39,6 +99,18 @@ export const AddAdsModal: FC<IProps> = ({ onClose }) => {
             <div className="ads-modal__body-close-btn-item"></div>
           </div>
         </div>
+
+        {loading && (
+          <div className="ads-modal__body-loading">
+            <p>LOADING...</p>
+          </div>
+        )}
+
+        {error && (
+          <div className="ads-modal__body-error">
+            <p>{error}</p>
+          </div>
+        )}
 
         <form
           className="ads-modal__body-form"
@@ -110,7 +182,7 @@ export const AddAdsModal: FC<IProps> = ({ onClose }) => {
           <div className="ads-modal__body-form-item">
             <label htmlFor="description">Description:</label>
             <textarea
-            rows={8}
+              rows={8}
               id="description"
               {...register("description", { required: true })}
             />

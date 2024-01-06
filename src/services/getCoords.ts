@@ -1,18 +1,34 @@
-// https://nominatim.openstreetmap.org/search?street=амосова&city=харьков&format=json
+import { ICoordsResponse } from "../types";
 
 export const getCoords = async (city: string, street: string) => {
   const params = new URLSearchParams({
     street,
     city,
-    format: 'json',
-    limit: '1'
-  })
+    format: "json",
+    limit: "1",
+  });
 
-  const response = await fetch(`https://nominatim.openstreetmap.org/search?${params}`, {
-    method: 'GET'
-  })
+  try {
+    const response = await fetch(
+      `https://nominatim.openstreetmap.org/search?${params}`,
+      {
+        method: "GET",
+      }
+    );
 
-  const data = await response.json();
+    if (response.ok) {
+      const data: ICoordsResponse[] = await response.json();
 
-  console.log(data)
-}
+      if (data.length) {
+        const coordinates = {
+          lat: Number(data[0].lat),
+          lon: Number(data[0].lon),
+        };
+
+        return coordinates;
+      }
+    }
+  } catch (error) {
+    throw new Error("There are problems, please try again later.");
+  }
+};

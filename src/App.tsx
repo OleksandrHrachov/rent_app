@@ -1,9 +1,16 @@
 import './App.scss';
+import { Ads } from './components/Ads';
+import { Header } from './components/Header';
+import { Map } from './components/Map';
 
 function App() {
   return (
     <div className="app">
-      RENT APP
+      <Header />
+      <main className='main'>
+        <Map/>
+        <Ads/>
+      </main>
     </div>
   );
 }

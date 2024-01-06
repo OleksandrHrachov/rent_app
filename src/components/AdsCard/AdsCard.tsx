@@ -2,20 +2,11 @@ import { FC } from "react";
 import cardImg from "../../assets/space.png";
 import locationIcon from '../../assets/locationIcon.svg'
 import priceIcon from '../../assets/priceIcon.svg';
+import { IAdsCardInfo } from "../../types";
 import "./AdsCard.scss";
 
 interface IProps {
-  info: {
-    id: string;
-    city: string;
-    street: string;
-    name: string;
-    phone: string;
-    email: string;
-    title: string;
-    price: number;
-    description: string;
-  };
+  info: IAdsCardInfo
 }
 
 export const AdsCard: FC<IProps> = ({ info }) => {

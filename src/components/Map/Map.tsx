@@ -3,46 +3,39 @@ import Leaflet from "leaflet";
 import markerIcon from "../../assets/marker.svg";
 import "./Map.scss";
 import "leaflet/dist/leaflet.css";
+import { useAppSelector } from "../../hooks";
 
 export const marker = new Leaflet.Icon({
   iconUrl: markerIcon,
 });
 
-const places = [
-  {
-    city: "Kharkiv",
-    lat: 49.9843281,
-    lon: 36.45527485404673,
-  },
-  {
-    city: "Bila Tserkva",
-    lat: 49.7959159,
-    lon: 30.13099175,
-  },
-];
-
 export const Map = () => {
+  const cards = useAppSelector((state) => state.adsList.list);
+
   return (
     <div className="map">
       <MapContainer
         center={[48.22, 31.1]}
         zoom={6}
         scrollWheelZoom={false}
-        style={{ height: "100%" }}
+        style={{ height: "90vh" }}
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
-        {places.map((place) => {
+        {cards.map((card) => {
           return (
             <Marker
-              key={place.city}
-              position={[place.lat, place.lon]}
+              key={card.info.id}
+              position={[card.coords.lat, card.coords.lon]}
               icon={marker}
             >
-              <Popup>{place.city}</Popup>
+              <Popup>
+                {card.info.city} <br /> {card.info.street && card.info.street}{" "}
+                <br /> {card.info.title}
+              </Popup>
             </Marker>
           );
         })}

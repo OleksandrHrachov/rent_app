@@ -1,3 +1,11 @@
+:root {
+  --blue: rgb(50, 139, 222);
+  --blue-04: rgba(50, 139, 222, 0.4);
+  --grey-light-08: rgba(229, 229, 229, 0.7);
+  --orange: rgb(239, 182, 76);
+  --orange-hover: rgb(251, 165, 5);
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -12,5 +20,9 @@ body {
 
 #root {
   min-height: inherit;
+}
+
+.container {
+  padding: 0 30px;
 }
 

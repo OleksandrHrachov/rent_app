@@ -1,16 +1,28 @@
-import './App.scss';
+import {useState} from 'react';
 import { Ads } from './components/Ads';
 import { Header } from './components/Header';
 import { Map } from './components/Map';
+import './App.scss';
+import { AddAdsModal } from './components/AddAdsModal';
 
 function App() {
+  const [showAddModal, setShowAddModal] = useState(false);
+  const openModal = () => {
+    setShowAddModal(true);
+  };
+
+  const closeModal = () => {
+    setShowAddModal(false);
+  };
+
   return (
     <div className="app">
-      <Header />
-      <main className='main'>
+      <Header openModal={openModal} />
+      <main className='container main'>
         <Map/>
         <Ads/>
       </main>
+      {showAddModal && <AddAdsModal onClose={closeModal} />}
     </div>
   );
 }

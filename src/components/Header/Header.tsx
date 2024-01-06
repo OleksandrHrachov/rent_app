@@ -8,7 +8,7 @@ interface IProps {
 
 export const Header: FC<IProps> = ({ openModal }) => {
   return (
-    <header className="container header">
+    <header className="header">
       <h3 className="header_title">
         Find everything you need or rent out everything you don't need.
       </h3>

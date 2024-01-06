@@ -1,0 +1,41 @@
+.ads-card {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid var(--blue-04);
+
+  &__img-wrapper {
+    width: auto;
+    height: 300px;
+    margin-bottom: 20px;
+  }
+
+  &__img {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  &__info {
+    font-size: 18px;
+
+    &-title {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    &-address {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      gap: 10px;
+    }
+
+    &-price {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+  }
+}

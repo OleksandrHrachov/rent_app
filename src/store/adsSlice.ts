@@ -1,19 +1,22 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IAdsCard, IAdsState } from "../types";
 
+// "http://res.cloudinary.com/dakb9rcdn/image/upload/v1704633058/rent_app/eqjfbzv2jxgdt6p2yiis.png"
+
 const initialState: IAdsState = {
   list: [
     {
       info: {
-        id: "hello",
+        id: "space_suit_wnwass",
         city: "Kharkiv",
-        street: "Hgd 12",
+        street: "Space street 12",
         name: "John",
-        phone: "+356-4465-564656",
-        email: "gdfd@fdsfds.gfds",
-        title: "Some Title",
-        price: 50000,
-        description: "lorem ipsum dolor sit amet, consectetur adip",
+        phone: "+356-4465-564-656",
+        email: "space@space.com",
+        title: "Space suit",
+        price: 10000,
+        description: "Space suit almost new, no holes, only 158 spacewalks.",
+        imageUrl: 'https://res.cloudinary.com/dakb9rcdn/image/upload/v1704633058/rent_app/eqjfbzv2jxgdt6p2yiis.png',
       },
       coords: {
         lat: 49.9843281,
@@ -22,15 +25,16 @@ const initialState: IAdsState = {
     },
     {
       info: {
-        id: "world",
+        id: "spaceship_j8m1jf",
         city: "Bila Tserkva",
-        street: "Ljdghgfd 12",
-        name: "John",
-        phone: "+3564465-564656",
-        email: "gdfd@fdsfds.gfds",
-        title: "Other title",
-        price: 70000,
-        description: "lorem ipsum dolor sit amet, consectetur adip",
+        street: "Space street 52",
+        name: "Nick",
+        phone: "+356-4465-564-656",
+        email: "space@space.com",
+        title: "Spaceship",
+        price: 700000,
+        description: "Rent a spaceship, range 100,000 light years, runs on banana peels, 3 bananas for 4 parsecs.",
+        imageUrl: 'https://res.cloudinary.com/dakb9rcdn/image/upload/v1704632758/rent_app/jgaqiajjawhiwfedothq.png',
       },
       coords: {
         lat: 49.7959159,

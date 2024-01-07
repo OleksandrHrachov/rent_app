@@ -13,7 +13,7 @@ export const AdsCard: FC<IProps> = ({ info }) => {
   return (
     <div className="ads-card">
       <div className="ads-card__img-wrapper">
-        <img className="ads-card__img" src={cardImg} alt="card" />
+        <img className="ads-card__img" src={info.imageUrl} alt={info.title} />
       </div>
       <div className="ads-card__info">
         <h5 className="ads-card__info-title">{info.title}</h5>

@@ -8,6 +8,7 @@ export interface IAdsCardInfo {
   title: string;
   price: number;
   description: string;
+  imageUrl: string;
 }
 
 export interface IAdsCardCoords {

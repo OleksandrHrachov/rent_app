@@ -6,17 +6,19 @@ interface IProps {
   variant?: "add";
   children: ReactNode;
   handelClick?: () => void;
+  customClassName?: string;
 }
 
 export const SharedButton: FC<IProps> = ({
   buttomType = "button",
   variant = "add",
   children,
-  handelClick
+  handelClick,
+  customClassName = ''
 }) => {
 
   return (
-    <button onClick={handelClick} className={`button button--${variant}`} type={buttomType}>
+    <button onClick={handelClick} className={`button button--${variant} ${customClassName}`} type={buttomType}>
       {children}
     </button>
   );

@@ -1,9 +1,9 @@
 .ads {
   padding: 10px;
-  display: flex;
   max-width: 350px;
   width: 100%;
-
+  height: calc(100vh - 90px);
+  overflow-y: scroll;
 
   &__list {
     width: 100%;

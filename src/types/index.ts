@@ -22,6 +22,7 @@ export interface IAdsCard {
 }
 
 export interface IAdsState {
+  selectedAd: string;
   list: IAdsCard[];
 }
 

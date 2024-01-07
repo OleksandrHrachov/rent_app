@@ -1,9 +1,10 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import Leaflet from "leaflet";
 import markerIcon from "../../assets/marker.svg";
-import "./Map.scss";
 import "leaflet/dist/leaflet.css";
-import { useAppSelector } from "../../hooks";
+import { useAppSelector, useAppDispatch } from "../../hooks";
+import { addSelectAdd } from "../../store/adsSlice";
+import "./Map.scss";
 
 export const marker = new Leaflet.Icon({
   iconUrl: markerIcon,
@@ -11,6 +12,11 @@ export const marker = new Leaflet.Icon({
 
 export const Map = () => {
   const cards = useAppSelector((state) => state.adsList.list);
+  const dispatch = useAppDispatch();
+
+  const handelSelectAd = (id: string) => {
+    dispatch(addSelectAdd(id));
+  };
 
   return (
     <div className="map">
@@ -31,6 +37,13 @@ export const Map = () => {
               key={card.info.id}
               position={[card.coords.lat, card.coords.lon]}
               icon={marker}
+              eventHandlers={{
+                click: () => {
+                  handelSelectAd(card.info.id);
+                },
+                mouseover: (event) => event.target.openPopup(),
+                mouseout: (event) => event.target.closePopup(),
+              }}
             >
               <Popup>
                 {card.info.city} <br /> {card.info.street && card.info.street}{" "}

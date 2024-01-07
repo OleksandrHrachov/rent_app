@@ -1,9 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IAdsCard, IAdsState } from "../types";
 
-// "http://res.cloudinary.com/dakb9rcdn/image/upload/v1704633058/rent_app/eqjfbzv2jxgdt6p2yiis.png"
-
 const initialState: IAdsState = {
+  selectedAd: '',
   list: [
     {
       info: {
@@ -51,8 +50,14 @@ const adsSlice = createSlice({
     addAds(state, action: PayloadAction<IAdsCard>) {
       state.list.push(action.payload);
     },
+    addSelectAdd(state, action: PayloadAction<string>) {
+      state.selectedAd = action.payload;
+    },
+    removeSelectAdd(state) {
+      state.selectedAd = '';
+    }
   },
 });
 
-export const { addAds } = adsSlice.actions;
+export const { addAds, addSelectAdd, removeSelectAdd } = adsSlice.actions;
 export default adsSlice.reducer;

@@ -68,6 +68,11 @@
       align-items: center;
       position: relative;
       cursor: pointer;
+      transition: all 0.5s;
+
+      &:hover {
+        background-color: var(--orange-hover);
+      }
 
       &-item {
         width: 80%;
@@ -82,6 +87,7 @@
         &:last-child {
           transform: rotate(45deg);
         }
+
       }
     }
 

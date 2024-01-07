@@ -3,6 +3,7 @@
   padding: 10px;
   margin-bottom: 10px;
   border-bottom: 2px solid var(--blue-04);
+  transition: all 0.5s;
 
   &__img-wrapper {
     width: auto;
@@ -19,23 +20,40 @@
 
   &__info {
     font-size: 18px;
+    transition: all 0.5s;
 
     &-title {
       font-size: 22px;
       margin-bottom: 10px;
     }
 
-    &-address {
+    &-address,
+    &-price,
+    &-owner,
+    &-phone,
+    &-email,
+    &-description {
       display: flex;
       align-items: center;
       margin-bottom: 10px;
       gap: 10px;
     }
+  }
 
-    &-price {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+  &__show-arrow {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--orange);
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 0 auto;
+    transition: all 0.5s;
+
+    &:hover {
+      background-color: var(--orange-hover);
     }
   }
 }

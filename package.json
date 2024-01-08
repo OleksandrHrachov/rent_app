@@ -1,6 +1,7 @@
 {
   "name": "rent_app",
   "version": "0.1.0",
+  "homepage": "https://oleksandrhrachov.github.io/rent_app",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^2.0.1",
@@ -27,7 +28,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -50,6 +53,7 @@
   "devDependencies": {
     "@types/leaflet": "^1.9.8",
     "@types/uuid": "^9.0.7",
+    "gh-pages": "^6.1.1",
     "sass": "^1.69.7"
   }
 }

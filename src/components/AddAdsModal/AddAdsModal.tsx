@@ -245,7 +245,7 @@ export const AddAdsModal: FC<IProps> = ({ onClose }) => {
                 <input
                   type="number"
                   id="price"
-                  {...register("price", { required: true })}
+                  {...register("price", { required: true, min: 1 })}
                 />
                 <p className="ads-modal__body-form-item-error">
                   {errors.price && "Price is required"}

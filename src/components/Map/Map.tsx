@@ -47,6 +47,13 @@ export const Map = () => {
     }
   }, [map]);
 
+  useEffect(() => {
+    if (map) {
+      const initVisibleAds = getVisibleMarkers(cardsAll, map);
+      dispatch(selectVisibleAds(initVisibleAds));
+    }
+  }, [cardsAll]);
+
   return (
     <div className="map">
       <MapContainer

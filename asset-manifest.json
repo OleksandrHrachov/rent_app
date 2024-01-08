@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/rent_app/static/css/main.8d16da31.css",
-    "main.js": "/rent_app/static/js/main.be5fb7e3.js",
+    "main.js": "/rent_app/static/js/main.ea5e0db2.js",
     "static/media/emailIcon.svg": "/rent_app/static/media/emailIcon.7dd59aac2fae7b95cf12898356bd6d55.svg",
     "static/media/priceIcon.svg": "/rent_app/static/media/priceIcon.2e7692ac00d8f0aa7bdc625e86752b6f.svg",
     "static/media/locationIcon.svg": "/rent_app/static/media/locationIcon.e3b21979a7bd70e7ffb8bed993403fb4.svg",
@@ -13,10 +13,10 @@
     "static/media/arrowBottom.svg": "/rent_app/static/media/arrowBottom.ac35dc6077db5e3ad32cb87d6e22b9a7.svg",
     "static/media/arrowTop.svg": "/rent_app/static/media/arrowTop.9832ecb6a9be3ec76da22906d72c7b43.svg",
     "main.8d16da31.css.map": "/rent_app/static/css/main.8d16da31.css.map",
-    "main.be5fb7e3.js.map": "/rent_app/static/js/main.be5fb7e3.js.map"
+    "main.ea5e0db2.js.map": "/rent_app/static/js/main.ea5e0db2.js.map"
   },
   "entrypoints": [
     "static/css/main.8d16da31.css",
-    "static/js/main.be5fb7e3.js"
+    "static/js/main.ea5e0db2.js"
   ]
 }

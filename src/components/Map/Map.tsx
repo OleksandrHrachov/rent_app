@@ -45,7 +45,7 @@ export const Map = () => {
         dispatch(selectVisibleAds(visibleAds));
       });
     }
-  }, [map]);
+  }, [map, cardsAll]);
 
   useEffect(() => {
     if (map) {

@@ -11,6 +11,7 @@
 - typescript
 - redux-toolkit
 - scss
+- leaflet
 - react hook form
 - the cloudinary is used to save images
 - Express

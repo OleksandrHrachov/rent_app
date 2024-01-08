@@ -3,6 +3,7 @@ import { IAdsCard, IAdsState } from "../types";
 
 const initialState: IAdsState = {
   selectedAd: '',
+  visibleList: [],
   list: [
     {
       info: {
@@ -50,6 +51,9 @@ const adsSlice = createSlice({
     addAds(state, action: PayloadAction<IAdsCard>) {
       state.list.push(action.payload);
     },
+    selectVisibleAds(state, action: PayloadAction<IAdsCard[]>) {
+      state.visibleList = action.payload;
+    },
     addSelectAdd(state, action: PayloadAction<string>) {
       state.selectedAd = action.payload;
     },
@@ -59,5 +63,5 @@ const adsSlice = createSlice({
   },
 });
 
-export const { addAds, addSelectAdd, removeSelectAdd } = adsSlice.actions;
+export const { addAds, addSelectAdd, removeSelectAdd, selectVisibleAds } = adsSlice.actions;
 export default adsSlice.reducer;

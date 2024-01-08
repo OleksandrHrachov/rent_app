@@ -6,6 +6,7 @@ import { getCoords } from "../../services/getCoords";
 import { useAppDispatch } from "../../hooks";
 import { addAds } from "../../store/adsSlice";
 import "./AddAdsModal.scss";
+import { createOffer } from "../../helpers";
 
 interface IProps {
   onClose: () => void;
@@ -81,10 +82,10 @@ export const AddAdsModal: FC<IProps> = ({ onClose }) => {
           info: {
             id: uuidv4(),
             city: data.city,
-            street: data.street,
+            street: data.street || '',
             name: data.name,
             phone: data.phone,
-            email: data.email,
+            email: data.email || '',
             title: data.title,
             price: data.price,
             description: data.description,
@@ -96,7 +97,11 @@ export const AddAdsModal: FC<IProps> = ({ onClose }) => {
           },
         };
 
-        dispatch(addAds(adsObj));
+        const res = await createOffer(adsObj);
+        console.log('RESULT:', res)
+        if (res) {
+          dispatch(addAds(adsObj));
+        }
 
         onClose();
         setLoading(false);

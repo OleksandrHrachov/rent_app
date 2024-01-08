@@ -13,3 +13,5 @@
 - scss
 - react hook form
 - the cloudinary is used to save images
+- Express
+- MongoDB

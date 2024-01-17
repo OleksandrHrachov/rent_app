@@ -1,5 +1,8 @@
-### Rent app
+## Rent app
 [DEMO LINK](https://oleksandrhrachov.github.io/rent_app/)
+
+## Description
+Using the form you can add your ad. After adding your ad, a geotag appears on the map when you click on it, on the right you can see more detailed information about your ad.
 
 ## run locally
 - clone repo

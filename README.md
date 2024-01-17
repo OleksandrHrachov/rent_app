@@ -15,6 +15,7 @@ Using the form you can add your ad. After adding your ad, a geotag appears on th
 - redux-toolkit
 - scss
 - leaflet
+- Nominatim
 - react hook form
 - the cloudinary is used to save images
 - Express
